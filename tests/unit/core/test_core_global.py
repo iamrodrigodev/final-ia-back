@@ -85,6 +85,22 @@ def test_excepciones_http():
     response = client.get("/error-403")
     assert response.status_code == 403
 
+@app_test.get("/error-418")
+def error_418():
+    raise HTTPException(status_code=418, detail="Teapot")
+
+@app_test.get("/error-recurso")
+def error_recurso():
+    from app.core.exceptions.errores_personalizados import ExcepcionDeRecursoNoEncontrado
+    raise ExcepcionDeRecursoNoEncontrado("No existe el ID")
+
+def test_excepciones_edge_cases():
+    response = client.get("/error-418")
+    assert response.status_code == 418
+    
+    response2 = client.get("/error-recurso")
+    assert response2.status_code == 404
+
 def test_cors_origen_permitido():
     response = client.get("/error-negocio", headers={"origin": "http://localhost:5173"})
     assert response.status_code == 400
