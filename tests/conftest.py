@@ -1,5 +1,5 @@
 import pytest
-from app.modules.prediccion.schemas.prediccion_schema import PerfilEstudiante
+from app.modules.prediccion.schemas.peticion.prediccion_peticion import PrediccionPeticion
 from app.modules.prediccion.domain.estudiante_dominio import ResultadoDominio
 from fastapi.testclient import TestClient
 from main import aplicacion
@@ -10,7 +10,7 @@ def cliente_api():
 
 @pytest.fixture
 def perfil_valido():
-    return PerfilEstudiante(
+    return PrediccionPeticion(
         estado_civil=1,
         modo_aplicacion=1,
         orden_aplicacion=1,

@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-class PerfilEstudiante(BaseModel):
+class PrediccionPeticion(BaseModel):
     estado_civil: int = Field(default=1, ge=1, le=6, description='Estado Civil (1-6)')
     modo_aplicacion: int = Field(default=1, ge=1, le=50, description='Modo de aplicación')
     orden_aplicacion: int = Field(default=1, ge=0, le=9, description='Orden de aplicación (0-9)')
@@ -19,8 +19,3 @@ class PerfilEstudiante(BaseModel):
     unidades_curriculares_1er_sem_evaluaciones: int = Field(default=5, ge=0, le=40, description='Evaluaciones cursadas en el 1er semestre')
     unidades_curriculares_1er_sem_aprobadas: int = Field(default=5, ge=0, le=30, description='Unidades curriculares aprobadas en el 1er semestre')
     unidades_curriculares_1er_sem_nota: float = Field(default=13.0, ge=0.0, le=20.0, description='Nota promedio en el 1er semestre (0-20)')
-
-class RespuestaPrediccion(BaseModel):
-    prediccion: str = Field(..., min_length=1, description="Predicción de deserción ('Deserción' o 'Graduado')")
-    probabilidad: float = Field(..., ge=0.0, le=1.0, description='Probabilidad de la predicción (0-1)')
-    mensaje: str = Field(..., min_length=1, description='Mensaje adicional sobre la predicción')
