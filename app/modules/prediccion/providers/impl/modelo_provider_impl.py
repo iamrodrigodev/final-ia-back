@@ -2,6 +2,7 @@ import os
 import joblib
 import pandas as pd
 from app.modules.prediccion.domain.estudiante_dominio import EstudianteDominio, ResultadoDominio
+from app.modules.prediccion.domain.caracteristicas_modelo import CARACTERISTICAS_MODELO
 from app.modules.prediccion.providers.modelo_provider import IModeloProvider
 from app.core.exceptions.errores_personalizados import ExcepcionDeNegocio
 from app.core.exceptions.mensajes_error import MensajesDeError
@@ -16,8 +17,27 @@ class ModeloProviderImpl(IModeloProvider):
             raise ExcepcionDeNegocio(MensajesDeError.MODELO_NO_ENTRENADO)
         try:
             pipeline = joblib.load(self.ruta_modelo)
-            datos_diccionario = {'Marital status': estudiante.estado_civil, 'Application mode': estudiante.modo_aplicacion, 'Application order': estudiante.orden_aplicacion, 'Course': estudiante.curso, 'Daytime/evening attendance\t': estudiante.asistencia_diurna_nocturna, 'Previous qualification': estudiante.calificacion_previa, 'Admission grade': estudiante.nota_admision, 'Displaced': estudiante.desplazado, 'Educational special needs': estudiante.necesidades_educativas_especiales, 'Debtor': estudiante.deudor, 'Tuition fees up to date': estudiante.mensualidades_al_dia, 'Gender': estudiante.genero, 'Scholarship holder': estudiante.becario, 'Age at enrollment': estudiante.edad_al_matricularse, 'Curricular units 1st sem (enrolled)': estudiante.unidades_curriculares_1er_sem_inscritas, 'Curricular units 1st sem (evaluations)': estudiante.unidades_curriculares_1er_sem_evaluaciones, 'Curricular units 1st sem (approved)': estudiante.unidades_curriculares_1er_sem_aprobadas, 'Curricular units 1st sem (grade)': estudiante.unidades_curriculares_1er_sem_nota}
-            datos_df = pd.DataFrame([datos_diccionario])
+            datos_diccionario = {
+                'Marital Status': estudiante.estado_civil,
+                'Application mode': estudiante.modo_aplicacion,
+                'Application order': estudiante.orden_aplicacion,
+                'Course': estudiante.curso,
+                'Daytime/evening attendance': estudiante.asistencia_diurna_nocturna,
+                'Previous qualification': estudiante.calificacion_previa,
+                'Admission grade': estudiante.nota_admision,
+                'Displaced': estudiante.desplazado,
+                'Educational special needs': estudiante.necesidades_educativas_especiales,
+                'Debtor': estudiante.deudor,
+                'Tuition fees up to date': estudiante.mensualidades_al_dia,
+                'Gender': estudiante.genero,
+                'Scholarship holder': estudiante.becario,
+                'Age at enrollment': estudiante.edad_al_matricularse,
+                'Curricular units 1st sem (enrolled)': estudiante.unidades_curriculares_1er_sem_inscritas,
+                'Curricular units 1st sem (evaluations)': estudiante.unidades_curriculares_1er_sem_evaluaciones,
+                'Curricular units 1st sem (approved)': estudiante.unidades_curriculares_1er_sem_aprobadas,
+                'Curricular units 1st sem (grade)': estudiante.unidades_curriculares_1er_sem_nota,
+            }
+            datos_df = pd.DataFrame([datos_diccionario], columns=CARACTERISTICAS_MODELO)
             prediccion = pipeline.predict(datos_df)[0]
             probabilidad_calculada = 0.0
             if hasattr(pipeline, 'predict_proba'):

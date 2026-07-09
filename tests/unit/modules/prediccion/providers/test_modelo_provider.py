@@ -1,5 +1,6 @@
 import pytest
 from unittest.mock import patch, Mock
+from app.modules.prediccion.domain.caracteristicas_modelo import CARACTERISTICAS_MODELO
 from app.modules.prediccion.providers.impl.modelo_provider_impl import ModeloProviderImpl
 from app.core.exceptions.errores_personalizados import ExcepcionDeNegocio
 from app.core.exceptions.mensajes_error import MensajesDeError
@@ -26,6 +27,8 @@ def test_ejecutar_prediccion_exitoso_dropout(mock_exists, mock_joblib_load, estu
     
     assert resultado.prediccion == "Deserción"
     assert resultado.probabilidad == 0.9
+    datos_modelo = mock_model.predict.call_args.args[0]
+    assert list(datos_modelo.columns) == CARACTERISTICAS_MODELO
 
 @patch("app.modules.prediccion.providers.impl.modelo_provider_impl.joblib.load")
 @patch("os.path.exists", return_value=True)

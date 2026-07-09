@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import SMOTE
+from app.modules.prediccion.domain.caracteristicas_modelo import CARACTERISTICAS_MODELO
 
 def fase_3_preprocesamiento(datos: pd.DataFrame):
     print('\n=== FASE 3: PREPROCESAMIENTO ===')
@@ -11,7 +12,7 @@ def fase_3_preprocesamiento(datos: pd.DataFrame):
         print(f'  -> Se imputaron {valores_nulos} valores nulos con la mediana.')
     mapa_objetivo = {'Dropout': 1, 'Graduate': 0}
     datos['Target'] = datos['Target'].map(mapa_objetivo)
-    caracteristicas = datos.drop(columns=['Target'])
+    caracteristicas = datos[CARACTERISTICAS_MODELO]
     objetivo = datos['Target']
     print('  -> Balanceando clases con SMOTE (Sobremuestreo)...')
     smote = SMOTE(random_state=42)
