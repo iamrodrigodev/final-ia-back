@@ -1,5 +1,4 @@
 from unittest.mock import patch, Mock
-import pytest
 from app.modules.prediccion.providers.impl.modelo_provider_impl import ModeloProviderImpl
 
 @patch("app.modules.prediccion.providers.impl.modelo_provider_impl.joblib.load")

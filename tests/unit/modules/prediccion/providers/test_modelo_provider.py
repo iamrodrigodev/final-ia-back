@@ -1,6 +1,5 @@
 import pytest
 from unittest.mock import patch, Mock
-import os
 from app.modules.prediccion.providers.impl.modelo_provider_impl import ModeloProviderImpl
 from app.core.exceptions.errores_personalizados import ExcepcionDeNegocio
 from app.core.exceptions.mensajes_error import MensajesDeError

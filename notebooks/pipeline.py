@@ -17,13 +17,13 @@ def ejecutar_pipeline_completo():
     
     fase_2_analisis_exploratorio(datos)
     
-    X_entrenar, X_prueba, y_entrenar, y_prueba, escalador = fase_3_preprocesamiento(datos)
+    X_entrenar, X_prueba, y_entrenar, y_prueba = fase_3_preprocesamiento(datos)
     
-    resultados, mejor_modelo, nombre_mejor = fase_4_entrenamiento_y_experimentos(X_entrenar, y_entrenar, X_prueba, y_prueba)
+    resultados, mejor_pipeline, nombre_mejor = fase_4_entrenamiento_y_experimentos(X_entrenar, y_entrenar, X_prueba, y_prueba)
     
     fase_5_evaluacion_y_seleccion(resultados, nombre_mejor)
     
-    fase_6_guardar_salida(mejor_modelo, escalador)
+    fase_6_guardar_salida(mejor_pipeline)
     
     print("\n¡Pipeline ejecutado al 100% de forma modular!")
 

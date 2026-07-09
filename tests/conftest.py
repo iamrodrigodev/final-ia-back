@@ -1,6 +1,6 @@
 import pytest
 from app.modules.prediccion.schemas.prediccion_schema import PerfilEstudiante
-from app.modules.prediccion.domain.estudiante_dominio import EstudianteDominio, ResultadoDominio
+from app.modules.prediccion.domain.estudiante_dominio import ResultadoDominio
 from fastapi.testclient import TestClient
 from main import aplicacion
 
