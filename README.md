@@ -51,7 +51,6 @@
 [![Python][Python]][python-site]
 [![Scikit-Learn][Scikit-Learn]][sklearn-site]
 [![Pandas][Pandas]][pandas-site]
-[![Docker][Docker]][docker-site]
 [![Git][Git]][git-site]
 [![GitHub][GitHub]][github-site]
 
@@ -67,13 +66,10 @@
 [Pandas]: https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white
 [pandas-site]: https://pandas.pydata.org/
 
-[Docker]: https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white
-[docker-site]: https://www.docker.com/
-
 [Git]: https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white
 [git-site]: https://git-scm.com/
 
 [GitHub]: https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white
 [github-site]: https://github.com/
 
-Backend del proyecto de Predicción de Deserción Estudiantil construido con FastAPI y Python. Expone a través de una API REST un modelo de Machine Learning entrenado (Pipeline) para predecir la probabilidad de que un estudiante abandone sus estudios, con integración continua y despliegue en Fly.io.
+Backend del proyecto de Predicción de Deserción Estudiantil construido con FastAPI y Python. Expone a través de una API REST un modelo de Machine Learning entrenado (Pipeline) para predecir la probabilidad de que un estudiante abandone sus estudios.
