@@ -70,4 +70,8 @@ Backend con FastAPI y modelo de Machine Learning (Pipeline) para predecir el aba
 [GitHub]: https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white
 [github-site]: https://github.com/
 
+## Licencia
+
+Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) para más detalles.
+
 Backend del proyecto de Predicción de Deserción Estudiantil construido con FastAPI y Python. Expone a través de una API REST un modelo de Machine Learning entrenado (Pipeline) para predecir la probabilidad de que un estudiante abandone sus estudios.
