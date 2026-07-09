@@ -4,6 +4,10 @@ from ucimlrepo import fetch_ucirepo
 from notebooks.src.config import RUTA_DATOS
 
 def fase_1_obtencion_de_datos() -> pd.DataFrame:
+    """
+    Descarga o carga el dataset oficial desde UCI Machine Learning Repository.
+    Enlace oficial del dataset: https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success
+    """
     print('\n=== FASE 1: OBTENCIÓN DE DATOS ===')
     
     # Si el archivo ya existe, lo cargamos
