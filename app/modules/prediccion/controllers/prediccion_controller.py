@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.modules.prediccion.schemas.prediccion_schema import PerfilEstudiante
+from app.modules.prediccion.schemas.peticion.prediccion_peticion import PrediccionPeticion
 from app.modules.prediccion.services.impl.prediccion_service_impl import PrediccionServiceImpl
 from app.modules.prediccion.providers.impl.modelo_provider_impl import ModeloProviderImpl
 from app.modules.prediccion.mappers.prediccion_mapper import PrediccionMapper
@@ -10,7 +10,7 @@ proveedor_modelo = ModeloProviderImpl()
 servicio_prediccion = PrediccionServiceImpl(modelo_provider=proveedor_modelo)
 
 @controlador.post('/', response_model=None)
-def predecir_desercion(perfil: PerfilEstudiante):
+def predecir_desercion(perfil: PrediccionPeticion):
     estudiante_dominio = PrediccionMapper.a_dominio(perfil)
     resultado_dominio = servicio_prediccion.obtener_prediccion(estudiante_dominio)
     respuesta_dto = PrediccionMapper.a_dto(resultado_dominio)
