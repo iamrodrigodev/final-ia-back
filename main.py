@@ -10,6 +10,6 @@ def crear_app() -> FastAPI:
     registrar_rutas(app)
     registrar_manejadores_error(app)
     return app
-aplicacion = crear_app()
+app = crear_app()
 if __name__ == '__main__':
-    uvicorn.run('main:aplicacion', host='0.0.0.0', port=8000, reload=True)
+    uvicorn.run('main:app', host='0.0.0.0', port=8000, reload=True)
