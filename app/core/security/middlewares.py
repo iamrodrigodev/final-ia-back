@@ -24,7 +24,7 @@ class VerificarOrigenMiddleware(BaseHTTPMiddleware):
             
         # Validar si viene un origin y si no está en la lista blanca
         if origen and origen not in origenes_permitidos and "*" not in origenes_permitidos:
-            status = MensajesDeError.ACCESO_DENEGADO.value[1]
+            status = 403
             return JSONResponse(
                 status_code=status,
                 content={

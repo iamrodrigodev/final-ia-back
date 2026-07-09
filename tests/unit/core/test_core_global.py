@@ -76,11 +76,11 @@ def test_cors_produccion(monkeypatch):
     assert resp2.status_code == 403
 
 def test_api_respuesta_metodos():
-    from app.core.responses.api_respuesta import APIRespuesta
-    resp = APIRespuesta.creado(data={"id": 1}, mensaje="OK")
+    from app.core.responses.api_respuesta import ApiDeRespuesta
+    resp = ApiDeRespuesta.creado(mensaje_enum="OK", datos={"id": 1})
     assert resp.status_code == 201
     
-    resp_err = APIRespuesta.error(mensaje="Fallo", errores=["x"], status_code=400)
+    resp_err = ApiDeRespuesta.error(mensaje_enum="Fallo", errores=["x"], codigo=400)
     assert resp_err.status_code == 400
 
 def test_enrutador_registrar_rutas():
