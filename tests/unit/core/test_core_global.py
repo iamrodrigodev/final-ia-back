@@ -20,9 +20,11 @@ class ModeloPrueba(BaseModel):
 def endpoint_validacion(modelo: ModeloPrueba):
     return {"ok": True}
 
+from app.core.exceptions.mensajes_error import MensajesDeError
+
 @app_test.get("/error-negocio")
 def error_negocio():
-    raise ExcepcionDeNegocio("Error test", 409, detalles="Detalle")
+    raise ExcepcionDeNegocio(MensajesDeError.DATOS_INVALIDOS, detalles="Detalle")
 
 @app_test.get("/error-generico")
 def error_generico():
@@ -32,9 +34,9 @@ client = TestClient(app_test)
 
 def test_excepcion_negocio():
     response = client.get("/error-negocio")
-    assert response.status_code == 409
+    assert response.status_code == 400
     data = response.json()
-    assert data["mensaje"] == "Error test"
+    assert data["mensaje"] == "Datos de entrada inválidos"
     assert data["detalles"] == "Detalle"
 
 def test_excepcion_generica():
@@ -49,7 +51,7 @@ def test_excepcion_validacion():
 
 def test_cors_origen_permitido():
     response = client.get("/error-negocio", headers={"origin": "http://localhost:5173"})
-    assert response.status_code == 409
+    assert response.status_code == 400
 
 def test_cors_origen_bloqueado():
     response = client.get("/error-negocio", headers={"origin": "http://hacker.com"})
