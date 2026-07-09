@@ -30,10 +30,7 @@ class VerificarOrigenMiddleware(BaseHTTPMiddleware):
                 status_code=status,
                 content={
                     "estado": "error",
-                    "mensaje": mensaje,
-                    "detalles": f"El origen '{origen}' no está autorizado por las políticas CORS.",
-                    "ruta": request.url.path,
-                    "errores": ["CORS Origin Restringido"]
+                    "mensaje": "CORS Origin Restringido"
                 }
             )
         return await call_next(request)
