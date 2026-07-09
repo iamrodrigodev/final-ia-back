@@ -2,7 +2,7 @@ import os
 import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
-from app.core.exceptions.excepciones_globales import registrar_manejadores_excepciones
+from app.core.exceptions.excepciones_globales import registrar_manejadores_error
 from app.core.exceptions.errores_personalizados import ExcepcionDeNegocio
 from app.core.security.cors import configurar_cors
 from fastapi.exceptions import RequestValidationError
@@ -11,7 +11,7 @@ import json
 
 app_test = FastAPI()
 configurar_cors(app_test)
-registrar_manejadores_excepciones(app_test)
+registrar_manejadores_error(app_test)
 
 class ModeloPrueba(BaseModel):
     campo: int
