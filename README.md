@@ -6,33 +6,29 @@
           <img src="https://github.com/RodrigoStranger/imagenes-la-salle/blob/main/logo_secundario_color.png?raw=true" width="150" />
         </th>
         <th>
-          <span style="font-weight:bold;">UNIVERSIDAD LA SALLE DE AREQUIPA</span><br />
-          <span style="font-weight:bold;">FACULTAD DE INGENIERÍAS Y ARQUITECTURA</span><br />
-          <span style="font-weight:bold;">DEPARTAMENTO ACADEMICO DE INGENIERÍA Y MATEMÁTICAS</span><br />
-          <span style="font-weight:bold;">CARRERA PROFESIONAL DE INGENIERÍA DE SOFTWARE</span>
+          <strong>UNIVERSIDAD LA SALLE DE AREQUIPA</strong><br />
+          <strong>FACULTAD DE INGENIERÍAS Y ARQUITECTURA</strong><br />
+          <strong>DEPARTAMENTO ACADÉMICO DE INGENIERÍA Y MATEMÁTICAS</strong><br />
+          <strong>CARRERA PROFESIONAL DE INGENIERÍA DE SOFTWARE</strong>
         </th>
       </tr>
     </thead>
   </table>
-</div>
 
-<div align="center">
-<table>
-    <thead>
-        <tr>
-            <th><strong>Semestre</strong></th>
-            <th><strong>Docente</strong></th>
-            <th><strong>Curso</strong></th>
-        </tr>
-    </thead>
+  <table>
     <tbody>
-        <tr bgcolor="#f6f8fa">
-            <td align="center">2026-I</td>
-            <td align="center">Vicente Enrique Machaca Arceda</td>
-            <td align="center">Inteligencia Artificial</td>
-        </tr>
+      <tr>
+        <td align="center"><strong>Semestre</strong></td>
+        <td align="center"><strong>Docente</strong></td>
+        <td align="center"><strong>Curso</strong></td>
+      </tr>
+      <tr>
+        <td align="center">2026-I</td>
+        <td align="center">Vicente Enrique Machaca Arceda</td>
+        <td align="center">Inteligencia Artificial</td>
+      </tr>
     </tbody>
-</table>
+  </table>
 </div>
 
 **Integrantes:**
@@ -42,7 +38,8 @@
 - Iben Omar Flores Polanco
 
 <div align="center">
-  <h2 style="font-weight:bold;">PREDICTOR DE DESERCIÓN ESTUDIANTIL (BACKEND)</h2>
+  <h2><strong>PREDICTOR DE DESERCIÓN ESTUDIANTIL (BACKEND)</strong></h2>
+  <p>Backend con FastAPI y modelo de Machine Learning (Pipeline) para predecir el abandono estudiantil</p>
 </div>
 
 ## Tecnologías utilizadas
