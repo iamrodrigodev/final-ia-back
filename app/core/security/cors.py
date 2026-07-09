@@ -1,5 +1,6 @@
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from dotenv import load_dotenv
@@ -26,6 +27,26 @@ def configurar_cors(app: FastAPI):
         host_url = frontend_url.replace("https://", "").replace("http://", "").split("/")[0]
         hosts_permitidos = [host_url, "*"] if host_url != "*" else ["*"]
         print(f"  -> CORS configurado para entorno: PRODUCCIÓN (Origen: {frontend_url})")
+
+    @app.middleware("http")
+    async def verificar_origen(request: Request, call_next):
+        origen = request.headers.get("origin")
+        # Validar si viene un origin y si no está en la lista blanca
+        if origen and origen not in origenes_permitidos and "*" not in origenes_permitidos:
+            from app.core.exceptions.mensajes_error import MensajesDeError
+            mensaje = MensajesDeError.ACCESO_DENEGADO.value[0]
+            status = MensajesDeError.ACCESO_DENEGADO.value[1]
+            return JSONResponse(
+                status_code=status,
+                content={
+                    "estado": "error",
+                    "mensaje": mensaje,
+                    "detalles": f"El origen '{origen}' no está autorizado por las políticas CORS.",
+                    "ruta": request.url.path,
+                    "errores": ["CORS Origin Restringido"]
+                }
+            )
+        return await call_next(request)
 
     app.add_middleware(
         CORSMiddleware,
