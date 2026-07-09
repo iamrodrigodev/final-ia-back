@@ -8,7 +8,7 @@ from sklearn.feature_selection import SelectKBest, f_classif
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, roc_auc_score
+from sklearn.metrics import confusion_matrix, classification_report, roc_auc_score
 from notebooks.src.config import DIRECTORIO_GRAFICOS, DIRECTORIO_MODELOS
 
 def fase_4_entrenamiento_y_experimentos(X_entrenamiento, y_entrenamiento, X_prueba, y_prueba):
