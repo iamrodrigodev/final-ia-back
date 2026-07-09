@@ -1,0 +1,4 @@
+modelo,mejor_f1_cv,accuracy_prueba,precision_prueba,recall_prueba,f1_prueba,roc_auc_prueba,mejores_parametros
+Regresion_Logistica,0.880159431639413,0.9015837104072398,0.9236641221374046,0.8642857142857143,0.8929889298892989,0.9511032430213464,"{'classifier__C': 1.0, 'selector__k': 10}"
+Arbol_de_Decision,0.8687015825633061,0.8970588235294118,0.931758530183727,0.8452380952380952,0.8863920099875156,0.9347162356321838,"{'classifier__max_depth': 5, 'classifier__min_samples_split': 10, 'selector__k': 10}"
+Random_Forest,0.8883990862376253,0.9083710407239819,0.9357326478149101,0.8666666666666667,0.899876390605686,0.9559652093596059,"{'classifier__max_depth': 20, 'classifier__n_estimators': 100, 'selector__k': 'all'}"
