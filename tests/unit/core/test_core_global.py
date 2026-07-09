@@ -47,7 +47,43 @@ def test_excepcion_generica():
 def test_excepcion_validacion():
     response = client.post("/validacion", json={"campo": "texto_invalido"})
     assert response.status_code == 400
-    assert "Error de validación en los datos enviados" in response.json()["mensaje"]
+    assert "Datos de entrada inválidos" in response.json()["mensaje"]
+
+def test_excepcion_validacion_requerido():
+    response = client.post("/validacion", json={})
+    assert response.status_code == 400
+    assert response.json()["errores"]["campo"] == "Este campo es obligatorio"
+
+def test_excepcion_validacion_body_mal_formado():
+    response = client.post("/validacion", content="malformado")
+    assert response.status_code == 400
+
+from starlette.exceptions import HTTPException
+
+@app_test.get("/error-401")
+def error_401():
+    raise HTTPException(status_code=401, detail="No autorizado")
+
+@app_test.get("/error-403")
+def error_403():
+    raise HTTPException(status_code=403, detail="Prohibido")
+
+def test_excepciones_http():
+    # 404 No encontrado
+    response = client.get("/ruta-no-existe")
+    assert response.status_code == 404
+    
+    # 405 Method Not Allowed
+    response = client.put("/validacion")
+    assert response.status_code == 405
+    
+    # 401 Unauthorized
+    response = client.get("/error-401")
+    assert response.status_code == 401
+    
+    # 403 Forbidden
+    response = client.get("/error-403")
+    assert response.status_code == 403
 
 def test_cors_origen_permitido():
     response = client.get("/error-negocio", headers={"origin": "http://localhost:5173"})
