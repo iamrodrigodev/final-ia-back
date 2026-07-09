@@ -3,7 +3,7 @@ name: Despliegue en Fly.io
 on:
   push:
     branches:
-      - master # Se ejecutará automáticamente cuando hagas push a la rama master
+      - master
 
 jobs:
   deploy:
