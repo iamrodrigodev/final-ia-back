@@ -30,7 +30,7 @@ def error_negocio():
 def error_generico():
     raise Exception("Fatal error")
 
-client = TestClient(app_test)
+client = TestClient(app_test, raise_server_exceptions=False)
 
 def test_excepcion_negocio():
     response = client.get("/error-negocio")
@@ -46,7 +46,7 @@ def test_excepcion_generica():
 
 def test_excepcion_validacion():
     response = client.post("/validacion", json={"campo": "texto_invalido"})
-    assert response.status_code == 422
+    assert response.status_code == 400
     assert "Error de validación en los datos enviados" in response.json()["mensaje"]
 
 def test_cors_origen_permitido():
