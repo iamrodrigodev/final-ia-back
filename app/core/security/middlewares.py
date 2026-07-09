@@ -30,6 +30,7 @@ class VerificarOrigenMiddleware(BaseHTTPMiddleware):
                 status_code=status,
                 content={
                     "estado": "error",
+                    "codigo": status,
                     "mensaje": "CORS Origin Restringido"
                 }
             )
