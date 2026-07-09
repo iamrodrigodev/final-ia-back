@@ -39,8 +39,9 @@
 
 <div align="center">
   <h2><strong>PREDICTOR DE DESERCIÓN ESTUDIANTIL (BACKEND)</strong></h2>
-  <p>Backend con FastAPI y modelo de Machine Learning (Pipeline) para predecir el abandono estudiantil</p>
 </div>
+
+Backend con FastAPI y modelo de Machine Learning (Pipeline) para predecir el abandono estudiantil.
 
 ## Tecnologías utilizadas
 
