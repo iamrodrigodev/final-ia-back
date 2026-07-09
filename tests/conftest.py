@@ -2,11 +2,11 @@ import pytest
 from app.modules.prediccion.schemas.peticion.prediccion_peticion import PrediccionPeticion
 from app.modules.prediccion.domain.estudiante_dominio import ResultadoDominio
 from fastapi.testclient import TestClient
-from main import aplicacion
+from main import app
 
 @pytest.fixture
 def cliente_api():
-    return TestClient(aplicacion)
+    return TestClient(app)
 
 @pytest.fixture
 def perfil_valido():

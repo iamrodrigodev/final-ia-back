@@ -1,8 +1,8 @@
 import pytest
 from fastapi.testclient import TestClient
-from main import aplicacion
+from main import app
 
-client = TestClient(aplicacion)
+client = TestClient(app)
 
 def test_api_salud_estable():
     response = client.get("/api/salud/")
