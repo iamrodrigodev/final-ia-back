@@ -1,8 +1,8 @@
 import os
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
+from app.core.security.middlewares import VerificarOrigenMiddleware
 from dotenv import load_dotenv
 
 # Cargar variables de entorno desde el archivo .env
@@ -28,26 +28,10 @@ def configurar_cors(app: FastAPI):
         hosts_permitidos = [host_url, "*"] if host_url != "*" else ["*"]
         print(f"  -> CORS configurado para entorno: PRODUCCIÓN (Origen: {frontend_url})")
 
-    @app.middleware("http")
-    async def verificar_origen(request: Request, call_next):
-        origen = request.headers.get("origin")
-        # Validar si viene un origin y si no está en la lista blanca
-        if origen and origen not in origenes_permitidos and "*" not in origenes_permitidos:
-            from app.core.exceptions.mensajes_error import MensajesDeError
-            mensaje = MensajesDeError.ACCESO_DENEGADO.value[0]
-            status = MensajesDeError.ACCESO_DENEGADO.value[1]
-            return JSONResponse(
-                status_code=status,
-                content={
-                    "estado": "error",
-                    "mensaje": mensaje,
-                    "detalles": f"El origen '{origen}' no está autorizado por las políticas CORS.",
-                    "ruta": request.url.path,
-                    "errores": ["CORS Origin Restringido"]
-                }
-            )
-        return await call_next(request)
+    # Middleware 1: Bloqueo estricto de orígenes no permitidos (Modular)
+    app.add_middleware(VerificarOrigenMiddleware)
 
+    # Middleware 2: Gestión de cabeceras CORS nativa
     app.add_middleware(
         CORSMiddleware,
         allow_origins=origenes_permitidos,
@@ -56,6 +40,7 @@ def configurar_cors(app: FastAPI):
         allow_headers=["*"]
     )
     
+    # Middleware 3: Seguridad contra Host Header Injection
     app.add_middleware(
         TrustedHostMiddleware, 
         allowed_hosts=hosts_permitidos
