@@ -5,7 +5,7 @@ from app.core.security.cors import configurar_cors
 from app.core.exceptions.excepciones_globales import registrar_manejadores_error
 
 def crear_app() -> FastAPI:
-    app = FastAPI(title='Predictor de Deserción Estudiantil', description='API para predecir si un estudiante abandonará sus estudios. (CI/CD Automático Activado 🚀)', version='1.0.1')
+    app = FastAPI(title='Predictor de Deserción Estudiantil', description='API para predecir si un estudiante abandonará sus estudios', version='1.0.1')
     configurar_cors(app)
     registrar_rutas(app)
     registrar_manejadores_error(app)
