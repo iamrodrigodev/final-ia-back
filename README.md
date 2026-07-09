@@ -26,8 +26,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td align="center">9no Semestre</td>
+        <tr bgcolor="#f6f8fa">
+            <td align="center">2026-I</td>
             <td align="center">Vicente Enrique Machaca Arceda</td>
             <td align="center">Inteligencia Artificial</td>
         </tr>
