@@ -1,25 +1,6 @@
 class EstudianteDominio:
-    def __init__(
-        self,
-        estado_civil: int,
-        modo_aplicacion: int,
-        orden_aplicacion: int,
-        curso: int,
-        asistencia_diurna_nocturna: int,
-        calificacion_previa: int,
-        nota_admision: float,
-        desplazado: int,
-        necesidades_educativas_especiales: int,
-        deudor: int,
-        mensualidades_al_dia: int,
-        genero: int,
-        becario: int,
-        edad_al_matricularse: int,
-        unidades_curriculares_1er_sem_inscritas: int,
-        unidades_curriculares_1er_sem_evaluaciones: int,
-        unidades_curriculares_1er_sem_aprobadas: int,
-        unidades_curriculares_1er_sem_nota: float,
-    ):
+
+    def __init__(self, estado_civil: int, modo_aplicacion: int, orden_aplicacion: int, curso: int, asistencia_diurna_nocturna: int, calificacion_previa: int, nota_admision: float, desplazado: int, necesidades_educativas_especiales: int, deudor: int, mensualidades_al_dia: int, genero: int, becario: int, edad_al_matricularse: int, unidades_curriculares_1er_sem_inscritas: int, unidades_curriculares_1er_sem_evaluaciones: int, unidades_curriculares_1er_sem_aprobadas: int, unidades_curriculares_1er_sem_nota: float):
         self.estado_civil = estado_civil
         self.modo_aplicacion = modo_aplicacion
         self.orden_aplicacion = orden_aplicacion
@@ -40,6 +21,7 @@ class EstudianteDominio:
         self.unidades_curriculares_1er_sem_nota = unidades_curriculares_1er_sem_nota
 
 class ResultadoDominio:
+
     def __init__(self, prediccion: str, probabilidad: float, mensaje: str):
         self.prediccion = prediccion
         self.probabilidad = probabilidad

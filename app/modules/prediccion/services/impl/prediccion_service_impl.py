@@ -5,6 +5,7 @@ from app.core.exceptions.errores_personalizados import ExcepcionDeNegocio
 from app.core.exceptions.mensajes_error import MensajesDeError
 
 class PrediccionServiceImpl(IPrediccionService):
+
     def __init__(self, modelo_provider: IModeloProvider):
         self.modelo_provider = modelo_provider
 
