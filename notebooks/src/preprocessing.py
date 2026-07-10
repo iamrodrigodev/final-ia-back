@@ -5,6 +5,10 @@ from app.modules.prediccion.domain.caracteristicas_modelo import CARACTERISTICAS
 
 def fase_3_preprocesamiento(datos: pd.DataFrame):
     print('\n=== FASE 3: PREPROCESAMIENTO ===')
+    datos.rename(columns={
+        'Marital status': 'Marital Status',
+        'Daytime/evening attendance\t': 'Daytime/evening attendance'
+    }, inplace=True)
     datos = datos[datos['Target'] != 'Enrolled'].copy()
     valores_nulos = datos.isnull().sum().sum()
     if valores_nulos > 0:
