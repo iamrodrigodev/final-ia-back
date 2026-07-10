@@ -1,23 +1,77 @@
+<div align="center">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <img src="https://github.com/RodrigoStranger/imagenes-la-salle/blob/main/logo_secundario_color.png?raw=true" width="150" />
+        </th>
+        <th>
+          <span style="font-weight:bold;">UNIVERSIDAD LA SALLE DE AREQUIPA</span><br />
+          <span style="font-weight:bold;">FACULTAD DE INGENIERÍAS Y ARQUITECTURA</span><br />
+          <span style="font-weight:bold;">DEPARTAMENTO ACADEMICO DE INGENIERÍA Y MATEMÁTICAS</span><br />
+          <span style="font-weight:bold;">CARRERA PROFESIONAL DE INGENIERÍA DE SOFTWARE</span>
+        </th>
+      </tr>
+    </thead>
+  </table>
+</div>
+
+<div align="center">
+  <h2 style="font-weight:bold;">TRABAJO FINAL</h2>
+</div>
+
 # Predictor de Desercion Estudiantil - Backend
 
 Backend del proyecto final de Inteligencia Artificial para predecir desercion estudiantil mediante Machine Learning y exponer el resultado por una API REST con FastAPI.
 
-## Datos del curso
-
-| Campo | Valor |
-|---|---|
-| Universidad | Universidad La Salle |
-| Carrera | Ingenieria de Software |
-| Curso | Inteligencia Artificial |
-| Docente | Dr. Vicente Enrique Machaca Arceda |
-| Semestre | 2026-I |
+<div align="center">
+  <table>
+    <tbody>
+      <tr>
+        <td align="center"><strong>Semestre</strong></td>
+        <td align="center"><strong>Docente</strong></td>
+        <td align="center"><strong>Curso</strong></td>
+      </tr>
+      <tr>
+        <td align="center">2026-I</td>
+        <td align="center">Vicente Enrique Machaca Arceda</td>
+        <td align="center">Inteligencia Artificial</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Integrantes
 
-- Rodrigo Emerson Infanzon Acosta
-- Carlos Daniel Aguilar Chirinos
-- Piero Omar De La Cruz Mancilla
-- Iben Omar Flores Polanco
+1. Rodrigo Emerson Infanzon Acosta
+2. Carlos Daniel Aguilar Chirinos
+3. Piero Omar De La Cruz Mancilla
+4. Iben Omar Flores Polanco
+
+## Tecnologías utilizadas
+
+[![Python][Python]][python-site]
+[![FastAPI][FastAPI]][fastapi-site]
+[![Pandas][Pandas]][pandas-site]
+[![Scikit-Learn][ScikitLearn]][scikit-site]
+[![Pytest][Pytest]][pytest-site]
+[![Git][Git]][git-site]
+[![GitHub][GitHub]][github-site]
+
+[Python]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
+[python-site]: https://www.python.org/
+[FastAPI]: https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white
+[fastapi-site]: https://fastapi.tiangolo.com/
+[Pandas]: https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white
+[pandas-site]: https://pandas.pydata.org/
+[ScikitLearn]: https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white
+[scikit-site]: https://scikit-learn.org/
+[Pytest]: https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white
+[pytest-site]: https://docs.pytest.org/
+[Git]: https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white
+[git-site]: https://git-scm.com/
+[GitHub]: https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white
+[github-site]: https://github.com/
 
 ## Problema abordado
 
@@ -28,20 +82,6 @@ La API recibe el perfil de un estudiante, valida los datos, aplica el modelo ent
 - Prediccion: `Desercion` o `Graduado`.
 - Probabilidad asociada al riesgo de desercion.
 - Mensaje interpretativo.
-
-## Tecnologias utilizadas
-
-- Python
-- FastAPI
-- Pydantic
-- Pandas
-- Scikit-learn
-- Imbalanced-learn
-- Matplotlib
-- Seaborn
-- UCI ML Repo
-- Joblib
-- Pytest
 
 ## Fuente de datos
 
