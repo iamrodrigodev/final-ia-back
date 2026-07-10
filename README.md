@@ -43,7 +43,7 @@ Backend del proyecto final de Inteligencia Artificial para predecir desercion es
 
 ## Integrantes
 
-1. Rodrigo Emerson Infanzon Acosta
+1. Rodrigo Emerson Infanzón Acosta
 2. Carlos Daniel Aguilar Chirinos
 3. Piero Omar De La Cruz Mancilla
 4. Iben Omar Flores Polanco
